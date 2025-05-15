@@ -7,17 +7,16 @@ from selenium.webdriver.common.keys import Keys
 
 
 
-driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+driver = webdriver.Firefox(
+    service=FirefoxService(GeckoDriverManager().install()))
 
 driver.get("https://the-internet.herokuapp.com/login")
 
 input_user = driver.find_element(By.CSS_SELECTOR, "#username")
 input_user.send_keys("tomsmith")
-sleep(5)
 
 input_pass = driver.find_element(By.CSS_SELECTOR, "#password")
-input_pass.send_keys(" SuperSecretPassword!")
-sleep(5)
+input_pass.send_keys("SuperSecretPassword!")
 
 login_button = driver.find_element(By.CSS_SELECTOR, "button.radius")
 login_button.click()
